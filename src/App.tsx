@@ -1,15 +1,21 @@
 function HelloWorld() {
   return (
-    <div>
+    <>
       <h1>Hello world!</h1>
-    </div>
+    </>
   )
+}
+
+function Message() {
+  const name = "Taemin"
+  return <h1>Hello {name}</h1>
 }
 
 function App() {
   return (
     <div>
       <HelloWorld />
+      <Message />
     </div>
   )
 }
