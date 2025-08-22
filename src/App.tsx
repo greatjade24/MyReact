@@ -1,6 +1,9 @@
 
 import Container from "./Container"
 import Destination from "./Destination"
+import Fruits from "./Fruits"
+import Item from "./Item"
+import Mailbox from "./Mailbox"
 
 // function HelloWorld() {
 //   return (
@@ -16,17 +19,20 @@ import Destination from "./Destination"
 // }
 
 function App() {
-  const destination = [
-    {
-      place: '강릉',
-      description: '재밌었던 여행'
-    }
-  ]
+  // const destination = [
+  //   {
+  //     place: '강릉',
+  //     description: '재밌었던 여행'
+  //   }
+  // ]
+  const fruits = ['바나나', '사과']
   return (
-    <div className="container">
-      <Container>여행 지역</Container>
-      <Destination {...destination[0]} />
-      <Destination />
+    <div>
+      <Item isDone={true} />
+      <Item isDone={false} />
+      <Mailbox unreadMessage={['hi']} />
+      <Mailbox unreadMessage={[]} />
+      {fruits.length > 0 && <Fruits fruits={fruits} />}
     </div>
   )
 }
