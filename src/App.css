@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.container {
+  padding: 10px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
