@@ -3,8 +3,10 @@
 // import Fruits from "./Fruits"
 // import Item from "./Item"
 // import Mailbox from "./Mailbox"
-
-import List, { FilteredList } from "./List"
+import Alert from "./Alert"
+import Form from "./Form"
+import Propagation from "./Propagation"
+// import List, { FilteredList } from "./List"
 
 // function HelloWorld() {
 //   return (
@@ -29,8 +31,10 @@ function App() {
   // const fruits = ['바나나', '사과']
   return (
     <div>
-      <List />
-      <FilteredList />
+      {/* SyntheticEvent */}
+      <Alert onAlert={() => alert("world")} />
+      <Form />
+      <Propagation />
     </div>
   )
 }
