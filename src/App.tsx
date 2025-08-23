@@ -1,9 +1,10 @@
+// import Container from "./Container"
+// import Destination from "./Destination"
+// import Fruits from "./Fruits"
+// import Item from "./Item"
+// import Mailbox from "./Mailbox"
 
-import Container from "./Container"
-import Destination from "./Destination"
-import Fruits from "./Fruits"
-import Item from "./Item"
-import Mailbox from "./Mailbox"
+import List, { FilteredList } from "./List"
 
 // function HelloWorld() {
 //   return (
@@ -25,14 +26,11 @@ function App() {
   //     description: '재밌었던 여행'
   //   }
   // ]
-  const fruits = ['바나나', '사과']
+  // const fruits = ['바나나', '사과']
   return (
     <div>
-      <Item isDone={true} />
-      <Item isDone={false} />
-      <Mailbox unreadMessage={['hi']} />
-      <Mailbox unreadMessage={[]} />
-      {fruits.length > 0 && <Fruits fruits={fruits} />}
+      <List />
+      <FilteredList />
     </div>
   )
 }
