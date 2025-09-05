@@ -1,40 +1,48 @@
-import { useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
-function FocusInput() {
-  const inputRef = useRef(null)
+function Basic() {
+  useEffect(() => {
+    console.log("mount")
+  }, [])
+  return <div>Hello World</div>
+}
 
-  const handleClick = () => {
-    inputRef.current.focus()
-  }
+function Update() {
+  const [state, setState] = useState(0)
+  // 추적 대상으로 인해 리렌더링이 유발될 때
+  useEffect(() => {
+    console.log("update", state)
+  }, state)
+
   return (
     <div>
-      <input type="text" ref={inputRef} />
-      <button onClick={handleClick}>Focus</button>
+      <h1>state: {state}</h1>
+      <button onClick={() => setState((pre) => pre + 1)}>Click</button>
     </div>
   )
 }
 
-function App() {
+function CleanUp() {
   const [seconds, setSeconds] = useState(0)
-  const timerRef = useRef(null)
-
-  const handleStart = () => {
-    if (timerRef.current) return
-
-    timerRef.current = setInterval(() => {
+  useEffect(() => {
+    const timerId = setInterval(() => {
       setSeconds((pre) => pre + 1)
     }, 1000)
-  }
-  const handleEnd = () => {
-    clearInterval(timerRef.current)
-    timerRef.current = null
-  }
+
+    return () => {
+      clearInterval(timerId)
+    }
+  }, [])
+  return <div>Seconds: {seconds}</div>
+}
+
+function App() {
+  const [isShow, setIsShow] = useState(false)
   return (
     <div>
-      {/* <h1>Timer: {seconds}</h1>
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handleEnd}>End</button> */}
-      <FocusInput />
+      <Basic />
+      {isShow && <CleanUp />}
+      <button onClick={() => setIsShow((pre) => !pre)}></button>
     </div>
   )
 }
