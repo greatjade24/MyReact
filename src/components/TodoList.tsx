@@ -1,7 +1,7 @@
 import TodoItem from './TodoItem'
 import './TodoList.css'
 
-function TodoList() {
+function TodoList({ data }) {
     return (
         <div className='todo-list'>
             <div className='todo-header'>
@@ -10,7 +10,7 @@ function TodoList() {
                 <button className='todo-header-button'>삭제</button>
             </div>
             <div>
-                <TodoItem />
+                {data.map((item) => <TodoItem text={item.text} completed={item.completed} />)}
             </div>
         </div>
     )
