@@ -1,7 +1,7 @@
 import TodoItem from './TodoItem'
 import './TodoList.css'
 
-function TodoList({ data }) {
+function TodoList({ data, onToggle }: any) {
     return (
         <div className='todo-list'>
             <div className='todo-header'>
@@ -10,7 +10,7 @@ function TodoList({ data }) {
                 <button className='todo-header-button'>삭제</button>
             </div>
             <div>
-                {data.map((item) => <TodoItem text={item.text} completed={item.completed} />)}
+                {data.map((item: any) => <TodoItem text={item.text} completed={item.completed} onToggle={() => onToggle(item.id)} />)}
             </div>
         </div>
     )
